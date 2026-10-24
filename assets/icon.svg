@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Styled original project icon</title>
+  <desc id="desc">A dark rounded square with white reading lines and an orange flowing accent.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c1c1b"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a60"/>
+      <stop offset="1" stop-color="#c85d32"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
+  <rect x="32" y="32" width="960" height="960" rx="224" fill="url(#panel)"/>
+  <rect x="33" y="33" width="958" height="958" rx="223" fill="none" stroke="#373735" stroke-width="2"/>
+  <path d="M277 328h278M277 436h404M277 544h302M277 652h368" fill="none" stroke="#f5f4ef" stroke-width="54" stroke-linecap="round"/>
+  <path d="M674 271c-99 55-147 138-142 250 5 119 83 177 211 173" fill="none" stroke="#f07643" stroke-opacity=".32" stroke-width="86" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M674 271c-99 55-147 138-142 250 5 119 83 177 211 173" fill="none" stroke="url(#accent)" stroke-width="46" stroke-linecap="round"/>
+  <circle cx="752" cy="696" r="32" fill="#f58a51"/>
+</svg>

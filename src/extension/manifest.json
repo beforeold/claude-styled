@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Claude Styled",
+  "version": "1.2.0",
+  "description": "Local typography, background, and ambient visual styling for Claude Desktop.",
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*"],
+      "css": ["style.css"],
+      "js": ["weather.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

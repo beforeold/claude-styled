@@ -1,0 +1,107 @@
+#!/bin/zsh
+
+set -eu
+
+launcher_dir="${0:A:h}"
+resources_dir="${launcher_dir:h}/Resources"
+bundled_extension_dir="${resources_dir}/extension"
+profile_extension_dir="${HOME}/Library/Application Support/Claude/extensions/fmkadmapgofadopljbjfkapdkoienihi"
+owner_marker="${profile_extension_dir}/.claude-styled-owned"
+pid_marker="${profile_extension_dir}/.claude-styled-last-pid"
+owner_signature="claude-styled:app.claudestyled.launcher:v1"
+claude_app="/Applications/Claude.app"
+claude_bin="${claude_app}/Contents/MacOS/Claude"
+
+show_error() {
+  /usr/bin/osascript - "$1" <<'APPLESCRIPT'
+on run argv
+  display alert "Claude Styled" message (item 1 of argv) as critical
+end run
+APPLESCRIPT
+}
+
+if [[ ! -x "${claude_bin}" ]]; then
+  show_error "没有找到 /Applications/Claude.app。请先安装官方 Claude Desktop。"
+  exit 1
+fi
+
+if [[ -d "${profile_extension_dir}" ]]; then
+  recorded_owner=$(/bin/cat "${owner_marker}" 2>/dev/null || true)
+  if [[ "${recorded_owner}" != "${owner_signature}" ]]; then
+    show_error "Claude 的 React Profile 扩展槽已存在，且没有有效的 Claude Styled 所有权标记。为避免覆盖，启动器已停止。"
+    exit 1
+  fi
+fi
+
+/bin/mkdir -p "${profile_extension_dir}"
+for source_name in manifest.json style.css weather.js; do
+  temporary_path="${profile_extension_dir}/.${source_name}.tmp.$$"
+  /bin/cp "${bundled_extension_dir}/${source_name}" "${temporary_path}"
+  /bin/mv -f "${temporary_path}" "${profile_extension_dir}/${source_name}"
+done
+temporary_marker="${profile_extension_dir}/.claude-styled-owned.tmp.$$"
+/usr/bin/printf '%s\n' "${owner_signature}" > "${temporary_marker}"
+/bin/mv -f "${temporary_marker}" "${owner_marker}"
+
+claude_pid=$(
+  /usr/bin/pgrep -f '^/Applications/Claude\.app/Contents/MacOS/Claude( |$)' \
+    | /usr/bin/head -n 1 \
+    || true
+)
+
+if [[ -n "${claude_pid}" ]]; then
+  previous_styled_pid=$(
+    /bin/cat "${pid_marker}" 2>/dev/null \
+      || true
+  )
+  if [[ "${claude_pid}" == "${previous_styled_pid}" ]] \
+    && /bin/ps eww -p "${claude_pid}" \
+      | /usr/bin/grep -q 'REACT_PROFILE=1'; then
+    /usr/bin/open "${claude_app}"
+    exit 0
+  fi
+
+  choice=$(
+    /usr/bin/osascript \
+      -e 'display dialog "Claude 已经以普通模式运行。要退出并用自定义样式重新打开吗？" with title "Claude Styled" buttons {"取消", "重新打开"} default button "重新打开" cancel button "取消"' \
+      -e 'button returned of result' \
+      2>/dev/null \
+      || true
+  )
+
+  if [[ "${choice}" != "重新打开" ]]; then
+    exit 0
+  fi
+
+  /bin/kill -TERM "${claude_pid}"
+
+  for _attempt in {1..80}; do
+    if ! /bin/kill -0 "${claude_pid}" 2>/dev/null; then
+      break
+    fi
+    /bin/sleep 0.1
+  done
+
+  if /bin/kill -0 "${claude_pid}" 2>/dev/null; then
+    show_error "Claude 没有及时退出。请手动退出后，再打开 Claude Styled。"
+    exit 1
+  fi
+fi
+
+/usr/bin/open -na "${claude_app}" --env REACT_PROFILE=1
+
+for _attempt in {1..80}; do
+  launched_pid=$(
+    /usr/bin/pgrep -f '^/Applications/Claude\.app/Contents/MacOS/Claude( |$)' \
+      | /usr/bin/head -n 1 \
+      || true
+  )
+  if [[ -n "${launched_pid}" ]]; then
+    /bin/echo "${launched_pid}" > "${pid_marker}"
+    exit 0
+  fi
+  /bin/sleep 0.1
+done
+
+show_error "Claude 没有成功启动。请检查官方 Claude Desktop 是否可以正常打开。"
+exit 1

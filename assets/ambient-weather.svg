@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="600" viewBox="0 0 1280 600" role="img" aria-labelledby="title desc">
+  <title id="title">Claude Styled 的雨雪氛围视觉</title>
+  <desc id="desc">脱敏重建的雨天与雪天界面示意，不包含真实账号和会话信息。</desc>
+  <defs>
+    <linearGradient id="rainBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#071018"/><stop offset="1" stop-color="#000"/>
+    </linearGradient>
+    <linearGradient id="snowBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111722"/><stop offset="1" stop-color="#020304"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff"/><stop offset="0.82" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0.08"/>
+    </linearGradient>
+    <mask id="fadeMask"><rect width="1280" height="600" fill="url(#fade)"/></mask>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.8"/></filter>
+  </defs>
+  <rect width="1280" height="600" rx="28" fill="#0c0c0c"/>
+  <rect x="0" width="640" height="600" rx="28" fill="url(#rainBg)"/>
+  <rect x="640" width="640" height="600" rx="28" fill="url(#snowBg)"/>
+  <path d="M640 0v600" stroke="#353a41"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif">
+    <rect x="30" y="26" width="94" height="31" rx="15.5" fill="#243645"/>
+    <text x="77" y="47" text-anchor="middle" fill="#d9e9f5" font-size="13" font-weight="700">雨天</text>
+    <rect x="670" y="26" width="94" height="31" rx="15.5" fill="#303847"/>
+    <text x="717" y="47" text-anchor="middle" fill="#eef5ff" font-size="13" font-weight="700">雪天</text>
+
+    <g opacity="0.96">
+      <rect x="56" y="91" width="528" height="454" rx="20" fill="#050607" stroke="#28323b"/>
+      <rect x="696" y="91" width="528" height="454" rx="20" fill="#030405" stroke="#323846"/>
+    </g>
+    <g fill="#efefeb" font-size="18">
+      <text x="118" y="169">让界面不只是更易读，</text>
+      <text x="118" y="199">也拥有属于自己的氛围。</text>
+      <text x="758" y="169">视觉层保持安静，</text>
+      <text x="758" y="199">不会影响阅读和操作。</text>
+    </g>
+    <g fill="#9b9b97" font-size="14">
+      <text x="118" y="260">全屏低对比雨滴</text>
+      <text x="118" y="286">输入区域附近逐渐淡出</text>
+      <text x="758" y="260">缓慢漂落的雪粒</text>
+      <text x="758" y="286">启用减少动态效果时自动关闭</text>
+    </g>
+    <rect x="91" y="460" width="458" height="55" rx="14" fill="#17191b" stroke="#32383d"/>
+    <text x="114" y="493" fill="#777b7e" font-size="14">输入消息……</text>
+    <rect x="731" y="460" width="458" height="55" rx="14" fill="#181a1e" stroke="#343944"/>
+    <text x="754" y="493" fill="#7d8188" font-size="14">输入消息……</text>
+  </g>
+
+  <g mask="url(#fadeMask)" stroke="#a9d3ed" stroke-width="2" stroke-linecap="round" opacity="0.62">
+    <path d="M32 68l-10 30 M82 111l-12 36 M152 41l-11 33 M218 92l-12 38 M277 38l-10 32 M338 123l-12 37 M410 48l-12 35 M472 102l-10 31 M546 44l-13 38 M602 130l-10 31"/>
+    <path d="M63 208l-10 30 M135 174l-12 36 M196 235l-11 33 M263 190l-12 38 M328 248l-10 32 M391 199l-12 37 M454 260l-12 35 M520 202l-10 31 M582 274l-13 38"/>
+    <path d="M45 357l-10 30 M114 328l-12 36 M177 389l-11 33 M242 343l-12 38 M310 407l-10 32 M378 354l-12 37 M440 423l-12 35 M507 361l-10 31 M576 430l-13 38"/>
+  </g>
+
+  <g mask="url(#fadeMask)" fill="#e9f4ff" opacity="0.72" filter="url(#soft)">
+    <circle cx="678" cy="82" r="4"/><circle cx="728" cy="126" r="3"/><circle cx="786" cy="65" r="5"/><circle cx="842" cy="117" r="3.5"/><circle cx="904" cy="51" r="4"/><circle cx="960" cy="132" r="5"/><circle cx="1024" cy="74" r="3"/><circle cx="1087" cy="122" r="4.5"/><circle cx="1148" cy="60" r="3.5"/><circle cx="1210" cy="139" r="5"/>
+    <circle cx="704" cy="214" r="3.5"/><circle cx="768" cy="263" r="5"/><circle cx="824" cy="198" r="3"/><circle cx="884" cy="274" r="4"/><circle cx="943" cy="221" r="5"/><circle cx="1008" cy="286" r="3.5"/><circle cx="1064" cy="207" r="4.5"/><circle cx="1126" cy="268" r="3"/><circle cx="1186" cy="222" r="5"/><circle cx="1240" cy="291" r="4"/>
+    <circle cx="680" cy="356" r="5"/><circle cx="744" cy="414" r="3"/><circle cx="806" cy="342" r="4.5"/><circle cx="867" cy="402" r="3.5"/><circle cx="930" cy="352" r="5"/><circle cx="995" cy="421" r="4"/><circle cx="1054" cy="338" r="3"/><circle cx="1116" cy="399" r="5"/><circle cx="1175" cy="347" r="3.5"/><circle cx="1238" cy="420" r="4.5"/>
+  </g>
+</svg>

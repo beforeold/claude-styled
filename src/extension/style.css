@@ -1,0 +1,240 @@
+html[data-mode="dark"] main.dframe-content {
+  background-color: #000 !important;
+}
+
+html[data-mode="light"] main.dframe-content {
+  background-color: #fff !important;
+}
+
+.epitaxy-markdown {
+  font-family:
+    -apple-system-body, ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol" !important;
+  font-size: 16px !important;
+  line-height: 1.625 !important;
+  letter-spacing: normal !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.epitaxy-markdown p {
+  margin-block: 4px !important;
+}
+
+.epitaxy-markdown p:first-child {
+  margin-top: 0 !important;
+}
+
+.epitaxy-markdown p + p {
+  margin-top: 16px !important;
+  margin-bottom: 4px !important;
+}
+
+.epitaxy-markdown :is(ul, ol) {
+  padding-inline-start: 26px !important;
+  margin: 0 !important;
+}
+
+.epitaxy-markdown li {
+  margin-block: 0 !important;
+  padding-inline-start: 6px !important;
+}
+
+.epitaxy-markdown h1 {
+  font-size: 24px !important;
+  line-height: 32px !important;
+  margin: 0 0 8px !important;
+  letter-spacing: normal !important;
+}
+
+.epitaxy-markdown h2 {
+  font-size: 20px !important;
+  line-height: 28px !important;
+  margin: 16px 0 4px !important;
+  letter-spacing: normal !important;
+}
+
+.epitaxy-markdown h3 {
+  font-size: 18px !important;
+  line-height: 28px !important;
+  margin: 16px 0 4px !important;
+  letter-spacing: normal !important;
+}
+
+.epitaxy-markdown h4 {
+  font-size: 16px !important;
+  line-height: 26px !important;
+  margin: 16px 0 0 !important;
+  letter-spacing: normal !important;
+}
+
+.epitaxy-markdown :is(h1, h2, h3, h4):first-child {
+  margin-top: 0 !important;
+}
+
+.epitaxy-markdown :not(pre) > code {
+  font-size: 0.875em !important;
+  padding: 0.1em !important;
+  border-radius: 0.3em !important;
+}
+
+.epitaxy-markdown blockquote {
+  line-height: 24px !important;
+  margin: 0 0 8px !important;
+  padding-block: 8px !important;
+  padding-inline: 24px 0 !important;
+}
+
+.epitaxy-markdown blockquote > p {
+  margin: 0 !important;
+}
+
+.epitaxy-markdown hr {
+  margin-block: 28px !important;
+}
+
+.epitaxy-markdown hr + * {
+  margin-top: 0 !important;
+}
+
+.epitaxy-markdown pre {
+  margin-top: 8px !important;
+}
+
+.epitaxy-markdown pre:first-child {
+  margin-top: 0 !important;
+}
+
+.epitaxy-markdown > :last-child {
+  margin-bottom: 4px !important;
+}
+
+[class~="group/msg"] {
+  max-width: 640px !important;
+  margin-inline: auto !important;
+}
+
+[aria-label="Repository and pull request controls"] {
+  display: none !important;
+}
+
+/* Ambient weather stays visual-only. It spans the whole canvas at low contrast
+   and fades near the page bottom so reading and writing remain quiet. */
+#claude-styled-ambient-weather {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  overflow: hidden;
+  contain: strict;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 84%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 84%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+html[data-mode="dark"] #claude-styled-ambient-weather {
+  color: rgba(184, 211, 228, 0.82);
+  opacity: 0.52;
+  mix-blend-mode: screen;
+}
+
+html[data-mode="light"] #claude-styled-ambient-weather {
+  color: rgba(80, 105, 122, 0.72);
+  opacity: 0.34;
+  mix-blend-mode: multiply;
+}
+
+#claude-styled-ambient-weather > span {
+  position: absolute;
+  top: 0;
+  left: var(--weather-x);
+  display: block;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+#claude-styled-ambient-weather[data-weather="rain"] > span {
+  width: 1.5px;
+  height: var(--weather-length);
+  border-radius: 999px;
+  background: linear-gradient(to bottom, transparent, currentColor);
+  animation: claude-styled-rain-fall var(--weather-duration) linear
+    var(--weather-delay) infinite;
+}
+
+#claude-styled-ambient-weather[data-weather="snow"] > span {
+  width: var(--weather-size);
+  height: var(--weather-size);
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 10px color-mix(in srgb, currentColor 48%, transparent);
+  animation: claude-styled-snow-fall var(--weather-duration)
+    cubic-bezier(0.37, 0, 0.63, 1) var(--weather-delay) infinite;
+}
+
+@keyframes claude-styled-rain-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -14vh, 0) rotate(10deg);
+  }
+  8% {
+    opacity: var(--weather-opacity);
+  }
+  82% {
+    opacity: var(--weather-opacity);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--weather-drift), 112vh, 0) rotate(10deg);
+  }
+}
+
+@keyframes claude-styled-snow-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -8vh, 0) rotate(0deg);
+  }
+  10% {
+    opacity: var(--weather-opacity);
+  }
+  50% {
+    transform: translate3d(var(--weather-mid-drift), 48vh, 0) rotate(160deg);
+  }
+  84% {
+    opacity: var(--weather-opacity);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--weather-drift), 108vh, 0) rotate(320deg);
+  }
+}
+
+@media (max-width: 900px) {
+  html[data-mode] #claude-styled-ambient-weather {
+    opacity: 0.28;
+  }
+}
+
+@media (prefers-contrast: more) {
+  html[data-mode] #claude-styled-ambient-weather {
+    opacity: 0.24;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #claude-styled-ambient-weather {
+    display: none !important;
+  }
+}

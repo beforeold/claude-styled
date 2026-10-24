@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">Claude 原版与 Claude Styled 排版对比</title>
+  <desc id="desc">基于真实界面结构重建的脱敏示意图，不包含任何真实账号、项目或会话信息。</desc>
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#000" flood-opacity="0.26"/>
+    </filter>
+    <clipPath id="leftClip"><rect x="48" y="92" width="648" height="660" rx="22"/></clipPath>
+    <clipPath id="rightClip"><rect x="744" y="92" width="648" height="660" rx="22"/></clipPath>
+  </defs>
+  <rect width="1440" height="820" fill="#151514"/>
+  <text x="48" y="49" fill="#f4f4f1" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="26" font-weight="700">同一段内容，两种阅读体验</text>
+  <text x="1392" y="49" fill="#999994" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="15">脱敏重建示意</text>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="92" width="648" height="660" rx="22" fill="#20201f"/>
+    <rect x="744" y="92" width="648" height="660" rx="22" fill="#000"/>
+  </g>
+
+  <g clip-path="url(#leftClip)">
+    <rect x="48" y="92" width="154" height="660" fill="#171716"/>
+    <circle cx="72" cy="117" r="5" fill="#ff5f57"/><circle cx="90" cy="117" r="5" fill="#febc2e"/><circle cx="108" cy="117" r="5" fill="#28c840"/>
+    <text x="68" y="158" fill="#d6d6d1" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="14" font-weight="650">Claude</text>
+    <rect x="61" y="178" width="128" height="34" rx="9" fill="#292928"/>
+    <text x="76" y="200" fill="#dfdfdb" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12">＋ 新建对话</text>
+    <text x="68" y="246" fill="#777773" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="11">示例工作区</text>
+    <text x="68" y="278" fill="#b5b5b0" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12">○ 阅读体验讨论</text>
+    <text x="68" y="308" fill="#898985" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12">○ 界面样式测试</text>
+    <text x="68" y="338" fill="#898985" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12">○ 示例会话</text>
+    <rect x="202" y="92" width="494" height="52" fill="#161615"/>
+    <text x="226" y="125" fill="#ddddda" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="14" font-weight="650">原版 Claude</text>
+    <line x1="202" y1="144" x2="696" y2="144" stroke="#2b2b29"/>
+    <g fill="#d4d4d0" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12.5">
+      <text x="226" y="197">长时间阅读时，文字的大小、行距和内容宽度会直接影响</text>
+      <text x="226" y="216">注意力。原始界面的正文比较紧凑，内容区域也比较宽。</text>
+      <text x="226" y="255">我最初只是希望把排版调整得更接近自己熟悉的阅读</text>
+      <text x="226" y="274">方式，并让它在应用重启之后仍然保留。</text>
+      <text x="226" y="313">第一次临时修改很快成功，但关闭并重新打开应用后，</text>
+      <text x="226" y="332">所有变化又消失了。</text>
+    </g>
+    <rect x="226" y="598" width="442" height="58" rx="13" fill="#292928" stroke="#3b3b39"/>
+    <text x="246" y="632" fill="#888884" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="13">输入消息……</text>
+    <rect x="222" y="684" width="450" height="38" rx="10" fill="#252524"/>
+    <text x="238" y="708" fill="#8c8c88" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="11">项目控制 · 分支 · 提交</text>
+  </g>
+
+  <g clip-path="url(#rightClip)">
+    <rect x="744" y="92" width="154" height="660" fill="#111"/>
+    <circle cx="768" cy="117" r="5" fill="#ff5f57"/><circle cx="786" cy="117" r="5" fill="#febc2e"/><circle cx="804" cy="117" r="5" fill="#28c840"/>
+    <text x="764" y="158" fill="#eeeeea" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="14" font-weight="650">Claude</text>
+    <rect x="757" y="178" width="128" height="34" rx="9" fill="#242424"/>
+    <text x="772" y="200" fill="#eeeeea" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12">＋ 新建对话</text>
+    <text x="764" y="246" fill="#666" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="11">示例工作区</text>
+    <text x="764" y="278" fill="#c5c5c0" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12">○ 阅读体验讨论</text>
+    <text x="764" y="308" fill="#777" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12">○ 界面样式测试</text>
+    <text x="764" y="338" fill="#777" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12">○ 示例会话</text>
+    <rect x="898" y="92" width="494" height="52" fill="#050505"/>
+    <text x="922" y="125" fill="#f1f1ed" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="14" font-weight="650">Claude Styled</text>
+    <line x1="898" y1="144" x2="1392" y2="144" stroke="#202020"/>
+    <g fill="#ededE9" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="16">
+      <text x="954" y="203">长时间阅读时，文字的大小、行距和内容</text>
+      <text x="954" y="229">宽度会直接影响注意力。Styled 将正文</text>
+      <text x="954" y="255">收窄，并留出更舒展的行距。</text>
+      <text x="954" y="311">我最初只是希望把排版调整得更接近自己</text>
+      <text x="954" y="337">熟悉的阅读方式，并让它在应用重启之后</text>
+      <text x="954" y="363">仍然保留。</text>
+      <text x="954" y="419">最终版本通过独立启动器加载样式，官方</text>
+      <text x="954" y="445">Claude 应用本身保持不变。</text>
+    </g>
+    <rect x="930" y="632" width="430" height="58" rx="13" fill="#1d1d1d" stroke="#343434"/>
+    <text x="950" y="666" fill="#777" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="13">输入消息……</text>
+    <g fill="#b8643f" opacity="0.62">
+      <circle cx="1020" cy="170" r="2.2"/><circle cx="1114" cy="186" r="1.7"/><circle cx="1240" cy="170" r="2"/><circle cx="1310" cy="212" r="1.5"/>
+      <circle cx="1070" cy="510" r="1.7"/><circle cx="1188" cy="540" r="2.2"/><circle cx="1280" cy="494" r="1.5"/>
+    </g>
+  </g>
+
+  <rect x="69" y="707" width="104" height="27" rx="13.5" fill="#343432"/>
+  <text x="121" y="725" text-anchor="middle" fill="#cacac6" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12" font-weight="650">默认排版</text>
+  <rect x="765" y="707" width="114" height="27" rx="13.5" fill="#b8643f"/>
+  <text x="822" y="725" text-anchor="middle" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="12" font-weight="700">Styled 排版</text>
+</svg>
